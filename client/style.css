@@ -57,12 +57,69 @@ h1 {
   color: #333;
 }
 
+.size-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.size-label {
+  font-size: 1em;
+  color: #333;
+  font-weight: 500;
+}
+
+.size-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.size-btn {
+  padding: 8px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: white;
+  color: #333;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.size-btn:hover {
+  background: #e8e8e8;
+}
+
+.size-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 20px;
   perspective: 1000px;
+}
+
+.game-board.size-small {
+  gap: 6px;
+}
+
+.game-board.size-medium {
+  gap: 10px;
+}
+
+.game-board.size-large {
+  gap: 14px;
 }
 
 .card {
@@ -96,6 +153,33 @@ h1 {
   align-items: center;
   font-size: 2.5em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.size-small .card-face {
+  font-size: 1.5em;
+  border-radius: 8px;
+}
+
+.size-small .card-back::before {
+  font-size: 1.5em;
+}
+
+.size-medium .card-face {
+  font-size: 2.5em;
+  border-radius: 12px;
+}
+
+.size-medium .card-back::before {
+  font-size: 2em;
+}
+
+.size-large .card-face {
+  font-size: 3.5em;
+  border-radius: 16px;
+}
+
+.size-large .card-back::before {
+  font-size: 2.5em;
 }
 
 .card-back {
@@ -276,7 +360,32 @@ h1 {
     font-size: 1.5em;
   }
 
-  .card-face {
+  .size-selector {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .size-small .card-face {
+    font-size: 1.2em;
+  }
+
+  .size-small .card-back::before {
+    font-size: 1.2em;
+  }
+
+  .size-medium .card-face {
+    font-size: 1.8em;
+  }
+
+  .size-medium .card-back::before {
+    font-size: 1.5em;
+  }
+
+  .size-large .card-face {
+    font-size: 2.5em;
+  }
+
+  .size-large .card-back::before {
     font-size: 2em;
   }
 
