@@ -34,13 +34,13 @@ app.post('/api/score', (req, res) => {
   const { time, playerName } = req.body;
   
   if (typeof time !== 'number' || time <= 0) {
-    return res.status(400).json({ error: '鏃犳晥鐨勬垚缁╂暟鎹? });
+    return res.status(400).json({ error: '无效的成绩数据' });
   }
 
   const entry = {
     id: Date.now(),
     time: time,
-    playerName: playerName || '鍖垮悕鐜╁',
+    playerName: playerName || '匿名玩家',
     date: new Date().toLocaleString('zh-CN')
   };
 
@@ -62,5 +62,5 @@ app.get('/api/leaderboard', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`鏈嶅姟鍣ㄨ繍琛屽湪 http://localhost:${PORT}`);
+  console.log(`服务器运行在 http://localhost:${PORT}`);
 });
